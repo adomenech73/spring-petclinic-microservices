@@ -1,0 +1,6 @@
+apiVersion: v2
+name: config-server
+description: A Helm chart for Spring Pet Clinic Config Server Microservice
+type: application
+version: 0.1.0
+appVersion: "3.2.7"
