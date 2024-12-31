@@ -54,6 +54,70 @@
             <artifactId>jolokia-core</artifactId>
         </dependency>
 
+        <!-- OpenTelemtry dependencies -->
+        <!-- allows Micrometer, a metrics instrumentation library, to export metrics to
+        OpenTelemetry Protocol (OTLP) receivers. -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-otlp</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- It enables the use of OpenTelemetry for distributed tracing in applications that use
+        Micrometer for metrics and observability -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-tracing-bridge-otel</artifactId>
+            <version>1.4.1</version>
+        </dependency>
+        <!-- This dependency provides the OpenTelemetry API, which is a set of standardized
+        interfaces and classes for recording telemetry data across various observability signals -->
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-api</artifactId>
+            <version>1.45.0</version>
+        </dependency>
+        <!-- provides exporters for traces, metrics, and logs using both gRPC and HTTP/protobuf
+        protocols -->
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-exporter-otlp</artifactId>
+            <version>1.45.0</version>
+        </dependency>
+        <!-- provides common functionality and utilities used across various OpenTelemetry exporters -->
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-exporter-common</artifactId>
+            <version>1.45.0</version>
+        </dependency>
+        <!-- This dependency provides the OpenTelemetry SDK (Software Development Kit), which is the
+        reference implementation of the OpenTelemetry API -->
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-sdk</artifactId>
+            <version>1.45.0</version>
+        </dependency>
+        <!--  component of the OpenTelemetry Java implementation that provides shared functionality
+        for OTLP (OpenTelemetry Protocol) exporters -->
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-exporter-otlp-common</artifactId>
+            <version>1.45.0</version>
+        </dependency>
+        <!-- Logback appender for OpenTelemetry, designed to integrate Logback logging with
+        OpenTelemetry's observability framework. -->
+        <dependency>
+            <groupId>io.opentelemetry.instrumentation</groupId>
+            <artifactId>opentelemetry-logback-appender-1.0</artifactId>
+            <version>1.33.6-alpha</version>
+        </dependency>
+        <!-- provides access to OpenTelemetry's semantic conventions for instrumentation in Java
+        applications -->
+        <dependency>
+            <groupId>io.opentelemetry.instrumentation</groupId>
+            <artifactId>opentelemetry-instrumentation-api-semconv</artifactId>
+            <version>1.33.6-alpha</version>
+        </dependency>
+
     </dependencies>
 
     <profiles>
