@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -37,13 +38,13 @@
         <docker.image.exposed.port>9090</docker.image.exposed.port>
         <docker.image.dockerfile.dir>${basedir}</docker.image.dockerfile.dir>
         <!-- podman is also supported -->
-        <container.executable>docker</container.executable>
+        <container.executable>podman</container.executable>
         <!-- By default, the OCI image is build for the linux/amd64 platform -->
         <!-- For Apple Silicon M2 Chip you have to change it to the linux/arm64 -->
-        <container.platform>linux/amd64</container.platform>
+        <container.platform>linux/arm64</container.platform>
         <!-- The -load option is a shortcut for or -output=type=docker -->
         <!-- Could be changed by the -push option !-->
-        <container.build.extraarg>--load</container.build.extraarg>
+        <container.build.extraarg>--format=docker</container.build.extraarg>
     </properties>
 
     <dependencyManagement>
@@ -84,7 +85,8 @@
                         <artifactId>spring-boot-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <!-- Spring Boot Actuator displays build-related information if a META-INF/build-info.properties file is present -->
+                                <!-- Spring Boot Actuator displays build-related information if a
+                                META-INF/build-info.properties file is present -->
                                 <goals>
                                     <goal>build-info</goal>
                                 </goals>
@@ -99,7 +101,8 @@
                         </executions>
                     </plugin>
 
-                    <!-- Spring Boot Actuator displays build-related information if a META-INF/build-info.properties file is present -->
+                    <!-- Spring Boot Actuator displays build-related information if a
+                    META-INF/build-info.properties file is present -->
                     <plugin>
                         <groupId>io.github.git-commit-id</groupId>
                         <artifactId>git-commit-id-maven-plugin</artifactId>
@@ -114,7 +117,8 @@
                             <verbose>true</verbose>
                             <dateFormat>yyyy-MM-dd'T'HH:mm:ssZ</dateFormat>
                             <generateGitPropertiesFile>true</generateGitPropertiesFile>
-                            <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+                            <generateGitPropertiesFilename>
+                                ${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
                             <failOnNoGitDirectory>false</failOnNoGitDirectory>
                             <failOnUnableToExtractRepoInfo>false</failOnUnableToExtractRepoInfo>
                         </configuration>
@@ -132,16 +136,20 @@
                                     <rules>
                                         <requireJavaVersion>
                                             <message>
-                                                🚫 Java version error: This project requires Java ${java.version} or higher.
+                                                🚫 Java version error: This project requires Java
+                                                ${java.version} or higher.
 
                                                 Your current Java version is ${java.version}
                                                 To fix this:
-                                                1. Download and install Java 17 or higher from your preferred vendor
-                                                2. Make sure JAVA_HOME points to the new Java installation
+                                                1. Download and install Java 17 or higher from your
+                                                preferred vendor
+                                                2. Make sure JAVA_HOME points to the new Java
+                                                installation
                                                 3. Verify with 'java -version' command
                                                 4. Run the build again
 
-                                                For more information, check the project documentation.
+                                                For more information, check the project
+                                                documentation.
                                             </message>
                                             <version>${java.version})</version>
                                         </requireJavaVersion>
