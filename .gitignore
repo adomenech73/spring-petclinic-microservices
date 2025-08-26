@@ -21,3 +21,6 @@ target/
 generated/
 
 **/.DS_Store
+
+*.log
+
