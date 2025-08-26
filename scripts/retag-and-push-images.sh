@@ -2,7 +2,7 @@
 set -e
 
 # Configuration
-VERSION=${VERSION:-3.2.7}
+VERSION=${VERSION:-3.4.1}
 REPOSITORY_PREFIX=${REPOSITORY_PREFIX:-localhost:5001}
 SOURCE_PREFIX="localhost/springcommunity"
 LOG_FILE="podman-retag-push.log"
